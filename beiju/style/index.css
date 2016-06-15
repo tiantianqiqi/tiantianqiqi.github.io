@@ -1,0 +1,115 @@
+@keyframes tic{
+	0%   {transform: scale(0.8);-webkit-transform: scale(0.8);}
+	50%  {transform: scale(1.8);-webkit-transform: scale(1.8);opacity: 0;}
+	60%  {transform: scale(1);-webkit-transform: scale(1);opacity: 0;}
+	90%  {transform: scale(0.6);-webkit-transform: scale(0.6);opacity: 1;}
+	100%  {transform: scale(0.8);-webkit-transform: scale(0.8);}
+}
+@-webkit-keyframes tic{
+	0%   {transform: scale(0.8);-webkit-transform: scale(0.8);}
+	50%  {transform: scale(1.8);-webkit-transform: scale(1.8);opacity: 0;}
+	60%  {transform: scale(1);-webkit-transform: scale(1);opacity: 0;}
+	90%  {transform: scale(0.6);-webkit-transform: scale(0.6);opacity: 1;}
+	100%  {transform: scale(0.8);-webkit-transform: scale(0.8);}
+}
+body{
+	margin: 0;
+}
+.half{
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 2;
+}
+.heart{
+	position: absolute;
+	top: calc(50vh - 40px);
+	left: 5vw;
+	width: 80px;
+	transition: all 5s ease-out;
+	will-change: transform;
+}
+.heart img{
+	opacity: 0.6;
+	position: absolute;
+	left: 0;
+}
+.heart img:last-child{
+	will-change: transform, opacity;
+}
+.heart.on{
+	transform: translateX(calc(45vw - 40px));
+	-webkit-transform: translateX(calc(45vw - 40px));
+}
+.heart.on img:last-child{
+	animation-name: tic;
+	animation-duration: 1s;
+	animation-iteration-count: 10;
+	-webkit-animation-name: tic;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 10;
+}
+.right{
+	right: 0;
+}
+.right .heart{
+	left: auto;
+	right: 5vw;
+}
+.right .heart.on{
+	transform: translateX(calc(40px - 45vw));
+	-webkit-transform: translateX(calc(40px - 45vw));
+}
+.right .heart.on img:last-child{
+	-webkit-animation-duration: 0.95s;
+	-webkit-animation-delay: 0.5s;
+}
+.opening{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: red;
+	z-index: 3;
+}
+.bg{
+	background-image: url(/img/bg.jpg);
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	clip-path: circle(0px at 50vw 50vh);
+	-webkit-clip-path: circle(0px at 50vw 50vh);
+	transition: all 1s ease-out;
+}
+.bg.on{
+	clip-path: circle(50vmin at 50vw 50vh);
+	-webkit-clip-path: circle(50vmin at 50vw 50vh);
+}
+.text{
+	top: 50vh;
+	left: 0;
+	width: 100vw;
+	height: 30vh;
+	margin-top: -15vh;
+	position: absolute;
+	color: red;
+	line-height: 10vh;
+	text-align: center;
+	z-index: 4;
+	font-style: italic;
+	font-size: 5vh;
+	font-weight: bold;
+	text-shadow: -1px -1px 0 #ff0,1px 1px 0 #00f;
+	clip-path: inset(0px 0px 30vh 0px);
+	-webkit-clip-path: inset(0px 0px 30vh 0px);
+	transition: all 10s ease-out;
+}
+.text.on{
+	clip-path: inset(0px 0px 0px 0px);
+	-webkit-clip-path: inset(0px 0px 0px 0px);
+}
+.text .white{
+	color: white;
+}

@@ -1,0 +1,87 @@
+@keyframes tic{
+	0%   {transform: scale(0.8);}
+	50%  {transform: scale(1.8);opacity: 0;}
+	60%  {transform: scale(1);opacity: 0;}
+	90%  {transform: scale(0.6);opacity: 1;}
+	100%  {transform: scale(0.8);}
+}
+@-webkit-keyframes tic{
+	0%   {-webkit-transform: scale(0.8);}
+	50%  {-webkit-transform: scale(1.8);opacity: 0;}
+	60%  {-webkit-transform: scale(1);opacity: 0;}
+	90%  {-webkit-transform: scale(0.6);opacity: 1;}
+	100%  {-webkit-transform: scale(0.8);}
+}
+body{
+	margin: 0;
+	background-color: red;
+}
+div{
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+}
+span{
+	padding: 15px 0;
+}
+
+.heart{
+	position: absolute;
+	top: calc(50vh + 10px);
+	left: calc(50vw - 40px);
+	width: 80px;
+	will-change: transform;
+}
+.heart img{
+	opacity: 0.6;
+	position: absolute;
+	left: 0;
+}
+.heart img:last-child{
+	will-change: transform, opacity;
+}
+.heart.on img:last-child{
+	animation-name: tic;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: tic;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+}
+
+.opening{
+	clip-path: circle(40vmin at 50vw 50vh);
+	-webkit-clip-path: circle(40vmin at 50vw 50vh);
+	width: 100vw;
+	height: 100vh;
+	background-color: #ecf0f1;
+	transition: all 1s ease-out;
+}
+.opening.on{
+	clip-path: circle(0 at 50vw 50vh);
+	-webkit-clip-path: circle(0 at 50vw 50vh);
+}
+
+header{
+	position: absolute;
+	top: 36vh;
+	text-align: center;
+	width: 100vw;
+	color: red;
+	font-weight: bold;
+	font-size: 56px;
+	letter-spacing: 30px;
+	padding-left: 15px;
+	text-shadow: 4px 2px 4px #e3916e;
+}
+
+.content{
+	position: absolute;
+	display: none;
+	right: 8vw;
+	top: 12vh;
+	font-size: 24px;
+	text-shadow: -1px 2px 1px #efbb24;;
+	color: #fad689;
+	font-weight: bold;
+	line-height: 12vw;
+}
