@@ -5,6 +5,6 @@ $(function(){
 	$(".opening").one('webkitTransitionEnd transitionend', function(){
 		$(".content").fadeIn();
 	});
-	var name=location.search.substring(1);
+	var name=decodeURI(location.search.substring(1));
 	$(".name").html(name);
 });
